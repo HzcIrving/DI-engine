@@ -125,7 +125,9 @@ class FileModelLoader(ModelLoader):
         super().shutdown(timeout)
         self._cleanup_thread = None
 
-    def _loop_cleanup(self):
+    def _loop_cleanup(self): 
+        """清理旧文件  
+        """
         while True:
             if len(self._files) == 0 or time() - self._files[0][0] < self._ttl:
                 sleep(1)
